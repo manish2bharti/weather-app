@@ -92,8 +92,8 @@ input{
 
 .moon{
     margin-top: 10px;
-    color: white;
-    filter: drop-shadow( 1px 1px 10px white);
+    color: #c1c1c1;
+    filter: drop-shadow( 1px 1px 10px #c1c1c1);
 }
 
 .cloud-div{
