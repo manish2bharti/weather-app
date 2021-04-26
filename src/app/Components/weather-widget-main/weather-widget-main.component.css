@@ -1,0 +1,140 @@
+.weather-widget-card{
+    background: #FFF;
+    color: #000;
+    padding: 15%;
+    padding-top: 11%;
+    margin: 2%;
+    border-radius: 15px;
+    text-align: center;
+    height: 400px;
+    text-transform: capitalize;
+}
+
+.present {
+    padding-top: 0px;
+}
+
+.issue {
+    margin-top: 25px;
+}
+
+h5,label{
+    margin-top: 25% ;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px #318ce7;
+}
+
+.btn{
+    background: linear-gradient(to right, #3399ff 0%, #0033cc 100%);
+    color: #fff;
+    box-shadow: 0px 2.5px 2px 0px rgba(13,163,143,0.5);
+    font-weight: 700;
+    text-shadow: 2px 4px 4px  #031a5f;
+    border-radius: 6px;
+    padding-top: 3px;
+}
+
+.btn:hover{
+    background: linear-gradient(to left, #3399ff 0%, #0033cc 100%);
+}
+
+input{
+    margin-bottom: 7%;
+}
+.sign{
+  height:75px;
+}
+.weather-row{
+    display: block;
+    margin: 0 auto;
+    width: fit-content;
+    padding: 0.6%;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.weather-detail {
+    margin-top: 10px;
+}
+
+.city-name-text{
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  letter-spacing: .1rem;
+  margin-bottom: 1rem;
+}
+
+.temperature-text{
+  text-align: start;
+  font-size: 3rem;
+}
+.min-text, .max-text{
+  margin: 0 5px;
+}
+.weather-condition-text{
+  display: block;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    text-align: center;
+}
+.min-temperature-text{
+  margin-right: 10px;
+  color: #00ff9b;
+  font-weight: bold;
+}
+.max-temperature-text{
+  color: #ff0070;
+  font-weight: bold;
+}
+
+.sun{
+    margin-top: 10px;
+    color: yellow;
+    filter: drop-shadow( 1px 1px 10px yellow);
+}
+
+.moon{
+    margin-top: 10px;
+    color: white;
+    filter: drop-shadow( 1px 1px 10px white);
+}
+
+.cloud-div{
+    margin-top: -40px;
+}
+
+.cloud{
+    color: rgb(104, 175, 197);
+    filter: drop-shadow( 1px 1px 5px rgb(104, 175, 197));
+    animation-name: Moving;
+    animation-iteration-count: infinite;
+    animation-duration: 10s;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate;
+}
+
+@keyframes Moving{
+    from{margin-left: -55px;}
+    to{margin-left: 65px;}
+}
+
+@media only screen and (max-width: 600px) {
+    .panel{
+        padding-top: 10%;
+    }
+
+    .present {
+        padding-top: 0px;
+    }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 767px) {
+    .panel {
+        padding-top: 5%;
+    }
+
+    .present {
+        padding-top: 0px;
+    }
+}

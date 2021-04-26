@@ -1,0 +1,14 @@
+.mainWrapper{
+  background: linear-gradient(to top, #86DBFF 0%, #e0c3fc 100%);
+
+}
+
+.heading{
+  font-size: 25px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 5px 15px;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

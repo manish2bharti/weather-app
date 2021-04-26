@@ -1,0 +1,10 @@
+<div class="mainWrapper">
+  <div class="container box">
+    <div class="row">
+      <span class="heading">Weather App - Manish Bharti</span>
+    </div>
+    <div class="row">
+      <app-weather-widget-main *ngFor="let city of cities;" [location]="city" class="col-md-3"></app-weather-widget-main>
+    </div>
+  </div>
+</div>

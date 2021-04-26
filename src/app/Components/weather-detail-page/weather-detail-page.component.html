@@ -1,0 +1,86 @@
+<div class="details-page-wrapper">
+  <div class="search-bar"><input type="text" placeholder="Search City" #citySearchInput/></div>
+  <div class="back-button" routerLink="" ><i class="fas fa-arrow-circle-left"></i></div>
+  <main class="body-content-wrapper">
+    <section class="card-header-container-dark col-md-5">
+      <div class="header-content-wrapper">
+        <div class="today-weather-container">
+          <div class="temp-state-container">
+            <span class="temperature-text">{{temp}}°</span>
+            <span class="weather-state-text">{{state}}</span>
+          </div>
+          <div class="hum-wind-container">
+            <div class="hum-container">
+              <span class="hum-text">humidity</span>
+              <span class="hum-value-text">{{hum}} %</span>
+            </div>
+            <div class="hum-wind-separator">&nbsp;</div>
+            <div class="wind-container">
+              <span class="wind-text">wind</span>
+              <span class="wind-value-text">{{wind}} K/M</span>
+            </div>
+          </div>
+        </div>
+        <div class="city-name-container">
+          <div class="city-name-underline">
+            <span class="city-name-text">{{city}}</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="forecast-container  col-md-7">
+      <div class="day-weather-container" [ngSwitch]="true" *ngFor="let day of daysForecast | keyvalue">
+        <span class="day-name-text">{{day.key}}</span>
+        <div class="sign" *ngSwitchCase="day.value.state === 'Clouds'">
+          <div  class="panel-row" *ngIf="isDay">
+              <i class="fas fa-3x fa-sun sun"></i>
+          </div>
+          <div  class="panel-row" *ngIf="!isDay">
+              <i class="fas fa-3x fa-moon moon"></i>
+          </div>
+          <div class="panel-row cloud-div">
+              <i class="fas fa-cloud fa-2x cloud"></i>
+          </div>
+      </div>
+
+      <div class="sign" *ngSwitchCase="day.value.state === 'Sunny' || day.value.state === 'Clear'">
+        <div  class="panel-row" *ngIf="isDay">
+            <i class="fas fa-3x fa-sun sun"></i>
+        </div>
+        <div  class="panel-row" *ngIf="!isDay">
+            <i class="fas fa-3x fa-moon moon"></i>
+        </div>
+      </div>
+
+      <div class="sign" *ngSwitchCase="day.value.state === 'Rain' || day.value.state === 'Drizzle'">
+        <div class="panel-row">
+          <i class="fas fa-cloud-rain fa-3x cloud"></i>
+        </div>
+      </div>
+
+      <div class="sign" *ngSwitchCase="day.value.state === 'Haze' || day.value.state === 'Fog'">
+        <div class="panel-row">
+          <i class="fas fa-smog fa-3x cloud"></i>
+        </div>
+      </div>
+      <div class="sign" *ngSwitchCase="day.value.state === 'Storm' || day.value.state === 'Thunderstorm'">
+        <div class="panel-row">
+          <i class="fas fa-cloud fa-2x cloud"></i>
+        </div>
+        <svg class="forecast-condition-icon" viewBox="-59 0 512 512.00065" height="40px" width="40px">
+            <path d="m224.941406 142.167969-48.4375 111.492187h31.660156c9.304688 0 14.386719 10.855469 8.425782 18l-90.269532 108.210938-106.886718 128.132812c-7.492188 8.976563-21.957032 1.570313-19.054688-9.757812l51.132813-199.414063h-38.378907c-7.902343 0-13.2148432-8.097656-10.066406-15.34375l48.445313-111.480469h-38.382813c-7.898437 0-13.2109372-8.097656-10.0625-15.347656l65.207032-150.0625c1.742187-4.003906 5.695312-6.597656 10.0625-6.597656h136.539062c7.902344 0 13.210938 8.097656 10.0625 15.34375l-48.433594 111.480469h38.371094c7.902344 0 13.214844 8.097656 10.066406 15.34375zm0 0" fill="yellow"/>
+            <path d="m224.941406 142.167969-48.4375 111.492187h31.660156c9.304688 0 14.386719 10.855469 8.425782 18l-90.269532 108.210938 17.480469-68.179688c1.671875-6.515625-3.25-12.859375-9.976562-12.859375h-25.105469c-7.902344 0-13.210938-8.097656-10.0625-15.34375l42.183594-97.074219c2.957031-6.804687-2.03125-14.40625-9.449219-14.40625h-22.671875c-7.902344 0-13.210938-8.101562-10.0625-15.347656l68.074219-156.660156h48.148437c7.898438 0 13.210938 8.097656 10.0625 15.34375l-48.4375 111.480469h38.375c7.898438 0 13.210938 8.097656 10.0625 15.34375zm0 0" fill="yellow"/>
+            <path d="m393.902344 222.675781-25.054688 57.671875h16.375c4.816406 0 7.445313 5.613282 4.359375 9.308594l-102.734375 111.484375c-7.253906 7.871094-20.210937.828125-17.554687-9.542969l22.535156-87.882812h-19.851563c-4.089843 0-6.835937-4.191406-5.207031-7.941406l25.058594-57.664063h-19.851563c-4.089843 0-6.835937-4.1875-5.207031-7.9375l33.730469-77.625c.902344-2.074219 2.945312-3.414063 5.207031-3.414063h82.992188c4.085937 0 6.832031 4.1875 5.203125 7.9375l-25.054688 57.667969h19.851563c4.085937 0 6.832031 4.1875 5.203125 7.9375zm0 0" fill="yellow"/>
+            <path d="m393.90625 222.671875-25.054688 57.671875h16.371094c4.820313 0 7.445313 5.613281 4.355469 9.3125l-102.726563 111.480469c-7.253906 7.875-20.214843.832031-17.554687-9.539063l9.25-36.074218 60.695313-65.867188c3.09375-3.699219.464843-9.3125-4.355469-9.3125h-8.515625c-3.710938 0-6.203125-3.804688-4.726563-7.203125l21.925781-50.46875c1.628907-3.75-1.121093-7.929687-5.214843-7.929687h-11.984375c-3.710938 0-6.203125-3.804688-4.726563-7.203126l21.925781-50.46875c1.628907-3.75-1.121093-7.941406-5.210937-7.941406h50.332031c4.09375 0 6.84375 4.191406 5.214844 7.941406l-25.054688 57.671876h19.839844c4.089844 0 6.839844 4.179687 5.214844 7.929687zm0 0" fill="yellow"/>
+        </svg>
+      </div>
+
+
+
+        <span class="day-temp-text">{{day.value.temp}}°</span>
+        <span class="day-state-text">{{day.value.state}}</span>
+        <span class="day-state-text" title="Sea Level">SL: {{day.value.sealevel}}</span>
+      </div>
+    </section>
+  </main>
+</div>
