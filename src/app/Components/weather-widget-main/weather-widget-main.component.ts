@@ -18,6 +18,7 @@ export class WeatherWidgetMainComponent implements OnInit, OnDestroy {
   interval;
   value;
   units: string;
+  errorMessage: string;
   weatherSub: Subscription;
 
   constructor(private weatherapiService: WeatherAPIService,public router: Router) {}
@@ -40,11 +41,11 @@ export class WeatherWidgetMainComponent implements OnInit, OnDestroy {
         this.setWeatherData(data);
         this.weatherData = data;
         console.log(this.weatherData);
-        this.error = '';
+        this.errorMessage = '';
       }, (err) => {
-        this.error = err.error.message;
+        this.errorMessage = err.message;
         setTimeout(() => {
-          this.error = '';
+          this.errorMessage = '';
         }, 2500);
       }
     )

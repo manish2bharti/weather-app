@@ -10,13 +10,15 @@ import { WeatherAPIService } from "./Components/weather-api.service";
 import { WeatherWidgetMainComponent } from './Components/weather-widget-main/weather-widget-main.component';
 import { WeatherDetailPageComponent } from './Components/weather-detail-page/weather-detail-page.component';
 import { HomeComponent } from './Components/home/home.component';
+import { ErrorComponent } from './Components/error/error.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WeatherWidgetMainComponent,
     WeatherDetailPageComponent,
-    HomeComponent
+    HomeComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
