@@ -57,7 +57,7 @@ export class WeatherDetailPageComponent implements OnInit, OnDestroy {
       debounceTime(1000),
       distinctUntilChanged(),
     ).subscribe((text: string) => {
-        this.city = text;
+        // this.city = text;
         this.searchCityWeather(text);
       }, (err) => {
         this.errorMessage = err.message;
@@ -118,10 +118,11 @@ export class WeatherDetailPageComponent implements OnInit, OnDestroy {
         this.city = searchValue;
         this.getDayForecast(response);
       }, (err) => {
-        this.errorMessage = err.message;
-        setTimeout(() => {
-          this.errorMessage = '';
-        }, 2500);
+        if(err === "404 Not Found"){
+          this.errorMessage = searchValue + ' City Not Found';
+        }else{
+          this.errorMessage = err.message;
+        }
       }
     )
   }
