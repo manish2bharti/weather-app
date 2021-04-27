@@ -123,6 +123,9 @@ export class WeatherDetailPageComponent implements OnInit, OnDestroy {
         }else{
           this.errorMessage = err.message;
         }
+        setTimeout(() => {
+          this.errorMessage = '';
+        }, 2500);
       }
     )
   }
